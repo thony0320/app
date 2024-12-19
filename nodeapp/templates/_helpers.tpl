@@ -1,6 +1,9 @@
 {{/*
 Expand the name of the chart.
 */}}
+{{- define "helm.fullname" -}}
+{{- .Release.Name | cat "-" .Chart.Name -}}
+{{- end -}}
 {{- define "nodeapp.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
